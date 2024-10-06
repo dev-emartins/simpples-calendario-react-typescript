@@ -1,46 +1,100 @@
-# Getting Started with Create React App
+# Projeto Calendário em React com TypeScript
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este projeto é um exemplo de um componente de calendário, construído utilizando React com TypeScript. Demonstrando assim a criação de um calendário dinâmico com navegação entre meses e exibição de dias. 
 
-## Available Scripts
+## Estrutura do Projeto
 
-In the project directory, you can run:
+A estrutura do projeto segue o modelo padrão de uma aplicação React.
 
-### `npm start`
+```
+/
+├── public/
+│   ├── favicon.ico
+│   └── index.html
+├── src/
+│   ├── components/
+│   │   └── Calendar.tsx 
+│   ├── styles/
+│   │   ├── Calendar.css 
+│   │   └── index.css          
+│   └── index.tsx               
+├── .gitignore
+├── package-lock.json
+├── package.json
+├── README.md
+└── tsconfig.json              
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Instalação
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Pré-requisitos
 
-### `npm test`
+- Node.js
+- npm ou yarn
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Passos
 
-### `npm run build`
+1. Clone o repositório:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+   ```bash
+   git clone https://github.com/Everaldo-Martins/simpples-calendario-react-typescript.git
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. Instale as dependências do projeto:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+   ```bash
+   npm install
+   ```
 
-### `npm run eject`
+   ou, se você estiver usando yarn:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+   ```bash
+   yarn install
+   ```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3. Inicie o projeto:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+   ```bash
+   npm start
+   ```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+   ou com yarn:
 
-## Learn More
+   ```bash
+   yarn start
+   ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+A aplicação executará no endereço [http://localhost:3000](http://localhost:3000).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Scripts Disponíveis
+
+No diretório do projeto, você pode executar:
+
+- **`npm start`**: Inicia a aplicação no modo de desenvolvimento.
+- **`npm test`**: Executa os testes configurados.
+- **`npm run build`**: Cria a versão de produção da aplicação.
+
+## Componentes
+
+### Calendar.tsx
+
+Este é o componente principal do calendário. Ele exibe os dias do mês atual e permite a navegação entre os meses. O componente utiliza hooks como `useState` e `useEffect` para controlar o estado do mês e ano, bem como para gerar dinamicamente os dias do mês.
+
+### Estilos
+
+- **Calendar.css**: Contém os estilos específicos para o layout e comportamento do calendário.
+- **index.css**: Estilos globais para a aplicação.
+
+## Tecnologias Utilizadas
+
+- **React**: Biblioteca para construção da interface de usuário.
+- **TypeScript**: Superset do JavaScript que adiciona tipagem estática ao código.
+- **CSS**: Para estilização da aplicação.
+
+## Personalização
+
+Você pode modificar o estilo do calendário alterando os arquivos `Calendar.css` e `index.css`. Também é possível adicionar novas funcionalidades ao componente `Calendar.tsx`, como exibição de eventos ou integração com uma API de calendário.
+
+## Licença
+
+Este projeto é licenciado sob a [MIT License](https://opensource.org/licenses/MIT).
