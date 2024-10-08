@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import '../styles/Calendar.css';
 
 const Calendar: React.FC = () => {
-    const data = new Date();
-    const [year, setYear] = useState<number>(data.getFullYear());
-    const [month, setMonth] = useState<number>(data.getMonth());
-    const [days, setDays] = useState<(number | string)[]>([]);
+    const d = new Date();
+    const [year, setYear] = useState<number>(d.getFullYear());
+    const [month, setMonth] = useState<number>(d.getMonth());
+    const [days, setDays] = useState<(number | string)[]>([]);    
     
     const months = [
         'Janeiro', 'Fevereiro', 'Março', 'Abril', 
@@ -33,9 +33,9 @@ const Calendar: React.FC = () => {
         <span 
             key={index}
             className={`day 
-                ${day === data.getDate() 
-                    && month === data.getMonth() 
-                    && year === data.getFullYear() 
+                ${day === d.getDate() 
+                    && month === d.getMonth() 
+                    && year === d.getFullYear() 
                     ? 'current' : ''
                 }`
             }
