@@ -5,8 +5,10 @@ const Calendar: React.FC = () => {
     const d = new Date();
     const [year, setYear] = useState<number>(d.getFullYear());
     const [month, setMonth] = useState<number>(d.getMonth());
-    const [days, setDays] = useState<(number | string)[]>([]);    
-    
+    const [days, setDays] = useState<(number | string)[]>([]);
+    const [holidays, setHolidays] = useState<{ [key: string]: string }>({});
+    const [monthlyHolidays, setMonthlyHolidays] = useState<string[]>([]); // Lista de feriados do mês
+
     const months = [
         'Janeiro', 'Fevereiro', 'Março', 'Abril', 
         'Maio', 'Junho', 'Julho', 'Agosto', 
@@ -28,20 +30,58 @@ const Calendar: React.FC = () => {
         getDiasMes(month, year);
     }, [month, year]);
 
-    const renderCalendar = () => {
-        return days.map((day, index) => (
-        <span 
-            key={index}
-            className={`day 
-                ${day === d.getDate() 
-                    && month === d.getMonth() 
-                    && year === d.getFullYear() 
-                    ? 'current' : ''
-                }`
+    useEffect(() => {
+        fetch('./src/data/feriados_nacionais.json')
+            .then((response) => response.json())
+            .then((data) => {
+                setHolidays(data);
+            })
+            .catch((error) => console.error("Erro ao carregar o JSON:", error));
+    }, []);
+
+    const isHoliday = (day: number) => {
+        const formattedDate = `${year}-${(month + 1).toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
+        return holidays[formattedDate];
+    };
+
+    const updateMonthlyHolidays = () => {
+        const holidaysInMonth: string[] = [];
+
+        days.forEach(day => {
+            if (typeof day === 'number') {
+                const holidayName = isHoliday(day);
+                if (holidayName) {
+                    holidaysInMonth.push(`${day} - ${holidayName}`);
+                }
             }
-        >{day}</span>
-        ));
-    };    
+        });
+
+        setMonthlyHolidays(holidaysInMonth);
+    };
+
+    useEffect(() => {
+        updateMonthlyHolidays();
+    }, [days, holidays]);
+
+    const renderCalendar = () => {
+        return days.map((day, index) => {
+            const holidayName = isHoliday(day as number);
+            
+            return (
+                <div 
+                    key={index}
+                    className={`day 
+                        ${day === d.getDate() 
+                            && month === d.getMonth() 
+                            && year === d.getFullYear() 
+                            ? 'current' : ''
+                        } ${holidayName ? 'holiday' : ''}`}
+                >
+                    {day}               
+                </div>                
+            );
+        });
+    };
 
     const renderWeek = () => {
         const week = ['Dom.', 'Seg.', 'Ter.', 'Qua.', 'Qui.', 'Sex.', 'Sab.'];
@@ -67,6 +107,7 @@ const Calendar: React.FC = () => {
             setMonth(prevMonth => prevMonth + 1);
         }
     };
+
     return (
         <div className="calendar">
             <div className="month">                
@@ -80,6 +121,13 @@ const Calendar: React.FC = () => {
             <div className="days">
                 {renderCalendar()}
             </div>
+            {monthlyHolidays.length > 0 && (
+                <div className="monthly-holidays">       
+                    {monthlyHolidays.map((holiday, index) => (
+                    <span key={index}>{holiday}</span>
+                    ))}
+                </div>
+            )}
         </div>
     );
 };

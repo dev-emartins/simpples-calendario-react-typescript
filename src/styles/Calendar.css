@@ -16,6 +16,7 @@ body {
     padding: 10px 20px 20px 20px;
     width: fit-content;
     text-align: center;
+    position: relative;
     box-shadow: 0 2px 4px #f4f7fc33;
 }
 
@@ -40,6 +41,7 @@ body {
 
 .calendar .week, 
 .calendar .days {
+    padding: 5px 0;
     display: grid;
     grid-template-columns: repeat(7, 0.5fr);
     gap: 5px;
@@ -57,19 +59,41 @@ body {
     font-weight: bold;
 }
 
-.calendar .days .day {
+.calendar .days .day {    
     font-size: 1rem;
     font-weight: 400;
     cursor: pointer;
 }
 
+.calendar .days .holiday{
+    color: #f5ac2a;
+}
+
 .calendar .days .current {
-    background-color: #f5ac2acc;
+    background-color: #f5ac2a;
     color: #323232;
     font-weight: 600;
     border-radius: 3rem;   
 }
 
-@media screen and (max-width: 480px){
-    
+.calendar .monthly-holidays {
+    border-top: 1px solid #f4f7fc66;
+    width: 100%;
+}
+
+.calendar .monthly-holidays span { 
+    width: 100%;
+    padding: 8px 0;
+    display: inline-block;
+    font-size: 0.9rem;
+    line-height: 1.1rem;
+    text-align: left;
+}
+
+.calendar .monthly-holidays span::before {
+    content: "\00263C";
+    font-size: 1.1rem;
+    line-height: 1.1rem;
+    margin-right: 5px;
+    color: #f5ac2a;
 }
