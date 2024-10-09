@@ -1,6 +1,6 @@
 # Projeto Calendário em React com TypeScript
 
-Este projeto é um exemplo de um componente de calendário, construído utilizando React com TypeScript. Demonstrando assim a criação de um calendário dinâmico com navegação entre meses e exibição de dias. 
+Este projeto é um componente de calendário, construído utilizando Vite, React com TypeScript. Demonstrando assim a criação de um calendário dinâmico com navegação entre meses, exibição de dias e feriados nacionais. 
 
 ## Estrutura do Projeto
 
@@ -9,20 +9,29 @@ A estrutura do projeto segue o modelo padrão de uma aplicação React.
 ```
 /
 ├── public/
-│   ├── favicon.ico
-│   └── index.html
+│   └── Calendar.gif
 ├── src/
-│   ├── components/
+│   ├── data/
+│   │   └── feriados_nacionais.json
+│   ├── pages/
 │   │   └── Calendar.tsx 
 │   ├── styles/
-│   │   ├── Calendar.css 
-│   │   └── index.css          
-│   └── index.tsx               
+│   │   ├── CalendarWhite.css 
+│   │   ├── CalendarDark.css
+│   │   └── main.css
+│   ├── App.tsx
+│   ├── main.tsx          
+│   └── vite-env.d.ts             
 ├── .gitignore
+├── eslint.config.js
+├── index.html
 ├── package-lock.json
 ├── package.json
 ├── README.md
-└── tsconfig.json              
+├── tsconfig.app.json
+├── tsconfig.json
+├── tsconfig.node.json
+└── vite.config.ts              
 ```
 
 ## Instalação
@@ -64,7 +73,7 @@ A estrutura do projeto segue o modelo padrão de uma aplicação React.
    yarn start
    ```
 
-A aplicação executará no endereço [http://localhost:3000](http://localhost:3000).
+A aplicação executará no endereço [http://localhost:5173](http://localhost:5173).
 
 ## Scripts Disponíveis
 
@@ -82,18 +91,24 @@ Este é o componente principal do calendário. Ele exibe os dias do mês atual e
 
 ### Estilos
 
-- **Calendar.css**: Contém os estilos específicos para o layout e comportamento do calendário.
+- **CalendarWgite.css**: Contém os estilos específicos para o layout e comportamento do calendário no tema claro.
+- **CalendarDark.css**: Contém os estilos específicos para o layout e comportamento do calendário no tema escuro.
 - **index.css**: Estilos globais para a aplicação.
 
 ## Tecnologias Utilizadas
 
+- **Vite**: Biblioteca que resolve os problemas comuns enfrentados no desenvolvimento JavaScript e TypeScript.
 - **React**: Biblioteca para construção da interface de usuário.
 - **TypeScript**: Superset do JavaScript que adiciona tipagem estática ao código.
 - **CSS**: Para estilização da aplicação.
 
 ## Personalização
 
-Você pode modificar o estilo do calendário alterando os arquivos `Calendar.css` e `index.css`. Também é possível adicionar novas funcionalidades ao componente `Calendar.tsx`, como exibição de eventos ou integração com uma API de calendário.
+Você pode modificar o estilo do calendário alterando os arquivos `CalendarWhite.css`, `CalendarDark.css` e `index.css`. Também é possível adicionar novas funcionalidades ao componente `Calendar.tsx`, como exibição de eventos ou integração com uma API de calendário.
+
+## Imagem
+
+![Calenário](/public/Calendar.gif)
 
 ## Licença
 
