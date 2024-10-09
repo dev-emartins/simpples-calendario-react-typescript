@@ -48,7 +48,7 @@ body {
 }
 
 .calendar .week {  
-    border-bottom: 1px solid #f4f7fc66;
+    border-bottom: 1px solid #f4f7fc44;
 }
 
 .calendar .week span,
@@ -65,35 +65,40 @@ body {
     cursor: pointer;
 }
 
+.calendar .days .day:hover {
+    color: #f5ac2a;
+}
+
 .calendar .days .holiday{
+    font-weight: 700;
     color: #f5ac2a;
 }
 
 .calendar .days .current {
-    background-color: #f5ac2a;
+    background-color: #f5ac2acc;
     color: #323232;
-    font-weight: 600;
+    font-weight: 700;
     border-radius: 3rem;   
 }
 
 .calendar .monthly-holidays {
-    border-top: 1px solid #f4f7fc66;
+    border-top: 1px solid #f4f7fc44;
     width: 100%;
+    padding: 8px 0;
 }
 
 .calendar .monthly-holidays span { 
     width: 100%;
-    padding: 8px 0;
     display: inline-block;
     font-size: 0.9rem;
-    line-height: 1.1rem;
+    font-weight: 300;
+    line-height: 1.2rem;
     text-align: left;
 }
 
 .calendar .monthly-holidays span::before {
     content: "\00263C";
-    font-size: 1.1rem;
-    line-height: 1.1rem;
+    font-size: 1rem;
     margin-right: 5px;
     color: #f5ac2a;
 }
