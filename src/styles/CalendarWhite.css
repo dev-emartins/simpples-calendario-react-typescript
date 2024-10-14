@@ -1,11 +1,9 @@
 body {
-    background-color: #f4f7fc;
+    background-color: #f4f7fc;    
     color: #323232;
-    display: flex;
-    font-size: 13px;
+    display: flex; 
     justify-content: center;
-    align-items: center;
-    height: 100vh;
+    align-items: center;   
 }
 
 .calendar {
@@ -16,7 +14,6 @@ body {
     padding: 10px 20px 20px 20px;
     width: fit-content;
     text-align: center;
-    position: relative;
     box-shadow: 0 2px 4px #32323233;
 }
 
@@ -90,8 +87,9 @@ body {
 .calendar .monthly-holidays span { 
     width: 100%;
     display: inline-block;
+    color: #323232;
     font-size: 0.8rem;
-    font-weight: 300;
+    font-weight: 500;
     line-height: 1.2rem;
     text-align: left;
 }

@@ -32,9 +32,9 @@ function Calendar() {
     useEffect(() => {  
         const feriados = {
             [`01/01/${year}`]: "Ano Novo e Confraternização Universal",
-            [`12/02/${year}`]: "Carnaval",
-            [`13/02/${year}`]: "Carnaval",
-            [`14/02/${year}`]: "Carnaval",
+            [`12/02/${year}`]: "Facultativo - Carnaval",
+            [`13/02/${year}`]: "Facultativo - Carnaval",
+            [`14/02/${year}`]: "Facultativo - Quarta-feira de Cinzas",
             [`29/03/${year}`]: "Sexta-Feira Santa - Paixão de Cristo",
             [`21/04/${year}`]: "Tiradentes",
             [`01/05/${year}`]: "Dia do Trabalho",
@@ -46,12 +46,12 @@ function Calendar() {
             [`24/09/${year}`]: "Patos - Padroeira",
             [`12/10/${year}`]: "Nossa Sr.ª Aparecida - Padroeira do Brasil",
             [`15/10/${year}`]: "Dia do Professor",
-            [`24/10/${year}`]: "Patos - Emancipação Política do município",
+            [`24/10/${year}`]: "Patos - Emancipação Política",
             [`28/10/${year}`]: "Dia do Servidor Público",
             [`02/11/${year}`]: "Finados",
             [`15/11/${year}`]: "Proclamação da República",
             [`20/11/${year}`]: "Consciência Negra",
-            [`24/11/${year}`]: "Santa Luzia - Emancipação Política do município",
+            [`24/11/${year}`]: "Santa Luzia - Emancipação Política",
             [`08/12/${year}`]: "N. Sra. da Conceição",
             [`13/12/${year}`]: "Santa Luzia - Padroeira",
             [`25/12/${year}`]: "Natal"
