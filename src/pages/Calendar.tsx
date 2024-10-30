@@ -1,12 +1,12 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
-function Calendar() { 
+const Calendar: React.FC = () => { 
     const d = new Date();
     const [year, setYear] = useState<number>(d.getFullYear());
     const [month, setMonth] = useState<number>(d.getMonth());
     const [days, setDays] = useState<(number | string)[]>([]);
     const [holidays, setHolidays] = useState<{ [key: string]: string }>({});
-    const [monthlyHolidays, setMonthlyHolidays] = useState<string[]>([]); // Lista de feriados do mês
+    const [monthlyHolidays, setMonthlyHolidays] = useState<string[]>([]);
 
     const months = [
         'Janeiro', 'Fevereiro', 'Março', 'Abril', 
