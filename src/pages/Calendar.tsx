@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
 const Calendar: React.FC = () => { 
     const d = new Date();
@@ -130,10 +131,10 @@ const Calendar: React.FC = () => {
 
     return (
         <div className="calendar">
-            <div className="month">                
-                <i onClick={handlePrevMonth} className="fa-solid fa-chevron-left"></i>
+            <div className="month"> 
+                <FaChevronLeft onClick={handlePrevMonth} className="icon" /> 
                 <h2>{`${months[month]} de ${year}`}</h2>
-                <i onClick={handleNextMonth} className="fa-solid fa-chevron-right"></i>
+                <FaChevronRight onClick={handleNextMonth} className="icon" />
             </div>
             <div className="week">
                 {renderWeek()}
@@ -144,7 +145,7 @@ const Calendar: React.FC = () => {
             {monthlyHolidays.length > 0 && (
                 <div className="monthly-holidays">       
                     {monthlyHolidays.map((holiday, index) => (
-                    <span key={index}>{holiday}</span>
+                        <span key={index}>{holiday}</span>
                     ))}
                 </div>
             )}
