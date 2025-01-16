@@ -11,13 +11,9 @@ A estrutura do projeto segue o modelo padrão de uma aplicação React.
 ├── public/
 │   └── Calendar.gif
 ├── src/
-│   ├── data/
-│   │   └── feriados_nacionais.json
 │   ├── pages/
 │   │   └── Calendar.tsx 
 │   ├── styles/
-│   │   ├── CalendarWhite.css 
-│   │   ├── CalendarDark.css
 │   │   └── main.css
 │   ├── App.tsx
 │   ├── main.tsx          
@@ -64,13 +60,13 @@ A estrutura do projeto segue o modelo padrão de uma aplicação React.
 3. Inicie o projeto:
 
    ```bash
-   npm start
+   npm run dev
    ```
 
    ou com yarn:
 
    ```bash
-   yarn start
+   yarn run dev
    ```
 
 A aplicação executará no endereço [http://localhost:5173](http://localhost:5173).
@@ -79,8 +75,8 @@ A aplicação executará no endereço [http://localhost:5173](http://localhost:5
 
 No diretório do projeto, você pode executar:
 
-- **`npm start`**: Inicia a aplicação no modo de desenvolvimento.
-- **`npm test`**: Executa os testes configurados.
+- **`npm run dev`**: Inicia a aplicação no modo de desenvolvimento.
+- **`npm run test`**: Executa os testes configurados.
 - **`npm run build`**: Cria a versão de produção da aplicação.
 
 ## Componentes
@@ -89,11 +85,9 @@ No diretório do projeto, você pode executar:
 
 Este é o componente principal do calendário. Ele exibe os dias do mês atual e permite a navegação entre os meses. O componente utiliza hooks como `useState` e `useEffect` para controlar o estado do mês e ano, bem como para gerar dinamicamente os dias do mês.
 
-### Estilos
+### Estilo
 
-- **CalendarWgite.css**: Contém os estilos específicos para o layout e comportamento do calendário no tema claro.
-- **CalendarDark.css**: Contém os estilos específicos para o layout e comportamento do calendário no tema escuro.
-- **index.css**: Estilos globais para a aplicação.
+- **main.css**: Estilos globais para a aplicação, concentrando toda estlização do calendário.
 
 ## Tecnologias Utilizadas
 
@@ -104,7 +98,7 @@ Este é o componente principal do calendário. Ele exibe os dias do mês atual e
 
 ## Personalização
 
-Você pode modificar o estilo do calendário alterando os arquivos `CalendarWhite.css`, `CalendarDark.css` e `index.css`. Também é possível adicionar novas funcionalidades ao componente `Calendar.tsx`, como exibição de eventos ou integração com uma API de calendário.
+Você pode modificar o estilo do calendário alterando os arquivos `main.css`. Também é possível adicionar novas funcionalidades ao componente `Calendar.tsx`, como exibição de eventos ou integração com uma API de calendário.
 
 ## Imagem
 
