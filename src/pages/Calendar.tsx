@@ -30,35 +30,72 @@ const Calendar: React.FC = () => {
         getDiasMes(month, year);
     }, [month, year]);
 
-    useEffect(() => {  
+    useEffect(() => {
+        const calculateEaster = (year: number) => {
+            const a = year % 19;
+            const b = Math.floor(year / 100);
+            const c = year % 100;
+            const d = Math.floor(b / 4);
+            const e = b % 4;
+            const f = Math.floor((b + 8) / 25);
+            const g = Math.floor((b - f + 1) / 3);
+            const h = (19 * a + b - d - g + 15) % 30;
+            const i = Math.floor(c / 4);
+            const k = c % 4;
+            const l = (32 + 2 * e + 2 * i - h - k) % 7;
+            const m = Math.floor((a + 11 * h + 22 * l) / 451);
+            const month = Math.floor((h + l - 7 * m + 114) / 31);
+            const day = ((h + l - 7 * m + 114) % 31) + 1;
+            return new Date(year, month - 1, day);
+        };
+
+        const easter = calculateEaster(year);
+
+        const carnival = new Date(easter);
+        carnival.setDate(easter.getDate() - 47);
+
+        const goodFriday = new Date(easter);
+        goodFriday.setDate(easter.getDate() - 2);
+
+        const corpusChristi = new Date(easter);
+        corpusChristi.setDate(easter.getDate() + 60);
+
         const feriados = {
-            [`01/01/${year}`]: "Ano Novo e Confraternização Universal",
-            [`12/02/${year}`]: "Facultativo - Carnaval",
-            [`13/02/${year}`]: "Facultativo - Carnaval",
-            [`14/02/${year}`]: "Facultativo - Quarta-feira de Cinzas",
-            [`29/03/${year}`]: "Sexta-Feira Santa - Paixão de Cristo",
+            [`01/01/${year}`]: "Confraternização Universal",
+            [formatDate(carnival)]: "Carnaval",
+            [`08/03/${year}`]: "Dia da Mulher",
+            [formatDate(goodFriday)]: "Sexta-Feira Santa",
             [`21/04/${year}`]: "Tiradentes",
             [`01/05/${year}`]: "Dia do Trabalho",
-            [`30/05/${year}`]: "Corpus Christi",
+            [formatDate(corpusChristi)]: "Corpus Christi",
             [`24/06/${year}`]: "São João",
             [`05/08/${year}`]: "Fundação do Estado da Paraíba",
             [`11/08/${year}`]: "Dia dos Pais",
             [`07/09/${year}`]: "Independência do Brasil",
             [`24/09/${year}`]: "Patos - Padroeira",
-            [`12/10/${year}`]: "Nossa Sr.ª Aparecida - Padroeira do Brasil",
+            [`12/10/${year}`]: "Nossa Sr.ª Aparecida",
             [`15/10/${year}`]: "Dia do Professor",
-            [`24/10/${year}`]: "Patos - Emancipação Política",
+            [`24/10/${year}`]: "Emancipação Política (Patos)",
             [`28/10/${year}`]: "Dia do Servidor Público",
             [`02/11/${year}`]: "Finados",
             [`15/11/${year}`]: "Proclamação da República",
             [`20/11/${year}`]: "Consciência Negra",
-            [`24/11/${year}`]: "Santa Luzia - Emancipação Política",
+            [`24/11/${year}`]: "Emancipação Política (Santa Luzia)",
             [`08/12/${year}`]: "N. Sra. da Conceição",
-            [`13/12/${year}`]: "Santa Luzia - Padroeira",
+            [`13/12/${year}`]: "Santa Luzia",
             [`25/12/${year}`]: "Natal"
         };
+
         setHolidays(feriados);
     }, [year]);
+
+    const formatDate = (date: Date) => {
+        return date.toLocaleDateString("pt-BR", {
+            day: "2-digit",
+            month: "2-digit",
+            year: "numeric",
+        });
+    };
 
     const isHoliday = (day: number) => {
         const formattedDate = `${day.toString().padStart(2, '0')}/${(month + 1).toString().padStart(2, '0')}/${year}`;
