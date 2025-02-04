@@ -61,8 +61,10 @@ const Calendar: React.FC = () => {
         corpusChristi.setDate(easter.getDate() + 60);
 
         const feriados = {
-            [`01/01/${year}`]: "Confraternização Universal",
+            [`01/01/${year}`]: "Confraternização Universal",            
+            [formatDate(new Date(carnival.getTime() - 86400000))]: "Facultativo",
             [formatDate(carnival)]: "Carnaval",
+            [formatDate(new Date(carnival.getTime() + 86400000))]: "Facultativo",
             [`08/03/${year}`]: "Dia da Mulher",
             [formatDate(goodFriday)]: "Sexta-Feira Santa",
             [`21/04/${year}`]: "Tiradentes",
