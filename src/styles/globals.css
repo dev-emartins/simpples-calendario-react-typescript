@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    @apply box-border;
+  }
+
+  html {
+    font-family: 'Montserrat', sans-serif;
+    @apply scroll-smooth;
+  }
+
+  html:focus-within {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply min-h-svh bg-primary-bg m-0 p-0;
+  }
+
+  #root {
+    @apply w-full min-h-svh m-0 p-0 flex flex-col justify-center items-center gap-2;
+  }  
+
+  ul[role='list'],
+  ol[role='list'] {
+    @apply list-none;
+  }
+
+  a:not([class]) {
+    text-decoration-skip-ink: auto;
+  }
+
+  img,
+  picture,
+  svg,
+  video,
+  canvas {
+    @apply align-middle italic bg-no-repeat bg-cover;
+  }
+
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+      @apply scroll-auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+      @apply transition-none;
+    }
+  }
+}
+
+@theme {
+  --color-primary-bg: #f4f7fc;
+  --color-secondary-bg: #fbfcff;
+  --color-tertiary-bg: #f5ac2a;
+  --color-transparent-bg: #f4f7fccc;
+  --color-primary-text: #323232;
+  --color-secondary-text: #424242;
+  --color-tertiary-text: #4c4c4c;
+
+  --color-activeday: #c3c5c9c0;
+  --color-holyday: #ea4d4d;
+  --color-celebrate: #f5ac2a;
+
+  --color-accent: #f5ac2a;
+  --color-button-text: #323232;
+  --color-toggler: #e4e4e4;
+  --color-shadow: #32323233;
+}
+
+.dark {
+  --color-primary-bg: #323232;
+  --color-secondary-bg: #424242;
+  --color-transparent-bg: #323232cc;
+  --color-primary-text: #f4f7fc;
+  --color-secondary-text: #fbfcff;
+  --color-tertiary-text: #f5ac2a;
+  --color-shadow: #f4f7fc33;
+
+  --color-activeday: #282828c0;
+}
+
+@layer utilities {
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-out;
+  }
+
+  @keyframes gradientFlow {
+    0% {
+      background-position: 100% 0%;
+    }
+    12.5% {
+      background-position: 75% 25%;
+    }
+    25% {
+      background-position: 50% 50%;
+    }
+    37.5% {
+      background-position: 25% 75%;
+    }
+    50% {
+      background-position: 0% 100%;
+    }
+    62.5% {
+      background-position: 25% 75%;
+    }
+    75% {
+      background-position: 50% 50%;
+    }
+    87.5% {
+      background-position: 75% 25%;
+    }
+    100% {
+      background-position: 100% 0%;
+    }
+  }
+
+  .animate-gradient-flow {
+    background-size: 200% 400%;
+    animation: gradientFlow 10s ease infinite;
+  }
+}
