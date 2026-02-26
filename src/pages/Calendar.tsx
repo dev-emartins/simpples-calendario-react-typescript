@@ -179,7 +179,7 @@ const Calendar: React.FC = () => {
                         ${day === d.getDate() 
                             && month === d.getMonth() 
                             && year === d.getFullYear() 
-                            ? 'bg-activeday text-primary-text font-bold'
+                            ? 'bg-accent text-primary-text font-bold'
                             : holidayName
                                 ? 'text-holyday'
                                 : celebrateName ? 'text-celebrate' : 'text-primary-text hover:text-accent'
@@ -252,22 +252,22 @@ const Calendar: React.FC = () => {
                     {/* Feriados */}
                     {monthlyHolidays.map((holiday, index) => (
                     <span
-                        key={`holiday-${index}`}
+                        key={`holiday-${ index }`}
                         className="block w-full text-left text-xs font-medium leading-tight text-primary-text
                         before:content-['\2726'] before:text-sm before:mr-1.5 before:text-holyday"
                     >
-                        {holiday}
+                        { holiday }
                     </span>
                     ))}
 
                     {/* Datas Comemorativas */}
                     {monthlyCommemoratives.map((date, index) => (
                     <span
-                        key={`commemorative-${index}`}
+                        key={`commemorative-${ index }`}
                         className="block w-full text-left text-xs font-medium leading-tight text-primary-text
                         before:content-['\263C'] before:text-sm before:mr-1.5 before:text-celebrate"
                     >
-                        {date}
+                        { date }
                     </span>
                     ))}
                 </div>

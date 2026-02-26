@@ -93,8 +93,6 @@
   --color-secondary-text: #fbfcff;
   --color-tertiary-text: #f5ac2a;
   --color-shadow: #f4f7fc33;
-
-  --color-activeday: #282828c0;
 }
 
 @layer utilities {
